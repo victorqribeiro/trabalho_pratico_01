@@ -19,7 +19,7 @@ class Panorama:
         kps_l, features_l = self.detector.detectAndCompute(gray_l, None)
         kps_r, features_r = self.detector.detectAndCompute(gray_r, None)
 
-        bf = cv2.BFMatcher(cv2.NORM_HAMMING2, crossCheck=True)
+        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
         matches = sorted(bf.match(features_l, features_r),
                          key=lambda x: x.distance)
 
